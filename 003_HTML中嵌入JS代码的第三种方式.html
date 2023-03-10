@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+		<title>003_HTML中嵌入JavaScript代码的第3种方式</title>
+	</head>
+	<body>
+		<!--我们可以写一个.js文件，在我们需要的地方引入就可以，容易维护和更改，去耦合！！
+			CSS中引入文件使用的是href，用的标签是link rel="stylesheet" href= type=text/css
+			引入图片是标签是img 路径是src表示的
+		-->
+		<!--引入外部独立的js文件的时候，引入的文件会自上而下依次执行代码
+			而且需要注意的是，如果是引入外部js文件，在script中写js代码是不会执行的，如下面的
+			alert("run!")就不会执行
+			但是后面的script块再写是没有问题的！！
+		-->
+		<script type="text/javascript" src="js/1.js">alert("run!")</script>
+		
+		<!--不能直接<script />,必须成对写-->
+		<!--注意不要写错了。。。是src-->
+		<!--同一个js文件可以被引入多次，但是实际开发中这样做的需求很少-->
+	</body>
+</html> 
+
+<!--命名规范和java是一样的，不需要特别记住关键字-->

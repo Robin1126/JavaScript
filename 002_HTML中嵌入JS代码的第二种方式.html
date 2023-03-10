@@ -1,0 +1,52 @@
+<script type="text/javascript">
+	alert("first......");
+</script>
+
+<!doctype html>
+<html>
+	<head>
+		<script type="text/javascript">
+			alert("head......");
+		</script>
+		<title>002_HTML中嵌入JavaScript代码的第二种方式</title>
+		<style type="text/css">
+			/*
+				css代码对比
+			*/
+		</style>
+	</head>
+	<body>
+		<input type="button" value="我是第一个按钮" />
+		<br>
+		<!--如果这个按钮放在脚本块的上面，就应该先执行这个代码，再执行下面的脚本块-->
+		<!--
+			第二种方式：脚本块的方式，有点像css
+			这里打开浏览器就自动加载了
+		-->
+		<script type="text/javascript">
+		/*
+			暴露在脚本块当中的程序，在页面打开的时候执行，标签是<script>,对照css的脚本块是style
+			并且遵循自上而下的顺序依次执行。这个代码的执行不需要事件，或者说事件就是打开浏览器
+
+			脚本块位置是随意的，在一个页面当中可以出现多次
+			js的注释和java一样
+
+			注意alert会阻塞页面的加载，垃圾网站的信息也是这个原理
+		
+		*/
+			window.alert("Hello World!");
+			window.alert("Hello JavaScript!");
+		</script>
+
+		<!--
+			下面按钮的语句必须等上面的js代码执行完毕才会执行
+		-->
+		<input type="button" value="我是一个按钮对象" />
+
+	</body>
+</html> 
+
+<script type="text/javascript">
+	alert("last......");
+</script>
+
