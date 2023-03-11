@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>获取文本框的value</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				1. JavaScript包括三大块：
+					ECMAScript:JS的核心语法（ES规范/ECMA-262标准）
+					DOM：Document Object Model (文档对象类型：对网页中的的节点进行增删该的过程) HTML文档被当作一颗DOM树
+						var domObj = document.getElemnetByID("Id");
+					BOM: Browser Object Model (浏览器对象)
+						浏览器的前进，后退，地址栏的操作等
+				2. BOM和DOM的区别和联系是什么？
+					BOM的顶级对象是window
+					DOM的顶级对象是document
+					实际上BOM是包括DOM的，因为DOM也是在浏览器里面
+			
+			*/
+		   // document的前面其实是有window的
+		/* 	window.onload = function() {
+				document.getElementById("mybtn").onclick = function() {
+					alert("hello！")
+				}
+			} */
+			window.onload = function() {
+				document.getElementById("getValue").onclick = function(){
+					// 如何读取text框中的值呢？使用对象的value属性
+					document.getElementById("username").value = "zhangsan";
+					// alert(document.getElementById("username").value)
+				}
+			}
+			
+			window.onload = function() {
+				document.getElementById("setBtn").onclick = function() {
+					document.getElementById("username2").value = document.getElementById("username1").value;
+				}
+			}
+			
+		</script>
+		
+		<!-- <input type="button" id="mybtn" value="hello"/> -->
+		<input type="text" id="username" />
+		<input type="button" id="getValue" value="get!" />
+		
+		<hr color="blue" width="80%">
+		<input type="text" id="username1" />
+		<br>
+		<input type="text" id="username2"/>
+		<br>
+		<input type="button" value="将第一个文本框中的value赋值到第二个文本框上" id="setBtn"/>
+		<br>
+		
+		<input type="text" onblur="alert('this.value')"/>
+		<!-- 上面代码的this代表的就是当前节点对象，this.value就是文本框的值 -->
+		
+	</body>
+</html>
