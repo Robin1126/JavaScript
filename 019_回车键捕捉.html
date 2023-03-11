@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>回车键的捕捉</title>
+		<!--回车键的键值是13，比如登录的时候按回车键被捕捉
+		esc的键值是27	其他的查表 -->
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.onload = function() {
+				
+				document.getElementById("username").onkeydown = function(event){ // 传回来一个object KeyboardEvent 键盘事件
+					// 获取键值
+					// function的括号里面随便整一个变量，比如event会接收一个事件对象
+					// 对于键盘事件来说，它都有一个keyCode属性来获取键值
+					// 不管写不写，调用的时候都会给你传对象，只是你接收不接收而已，如果你要使用你就接收
+					if(event.keyCode == 13) {
+						alert("loading...");
+						
+					}
+				}
+			}
+			
+			
+		</script>
+		<input type="text" id="username"/>
+	</body>
+</html>

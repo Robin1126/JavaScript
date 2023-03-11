@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS中void运算符</title>
+	</head>
+	<body>
+		页面顶部<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		
+		
+		<a href="javascript:void(0)" onclick="alert('hello')">保留住超链接的样式，同时用户点击该超链接的时候执行一段js代码，但页面不能跳转</a>
+		<!--当href中什么都不写的时候，默认是跳转到自己的页面，所以点击以后会重新跳到当前页面，回到顶部
+		如果不想这样，就要使用void（表达式）
+			void(表达式) 运算原理：执行表达式，但是不返回任何结果
+			这样就什么也有没有，也不是null 也不是""
+			但是还不能直接写void，否则会当成路径 要写成javascript：void(0) 这样告诉程序它是一个js语句
+			直接废弃掉href
+			
+			void(0)一般只有这个用法，不跳转 void小括号当中必须有表达式
+		-->
+		页面底部
+	</body>
+</html>

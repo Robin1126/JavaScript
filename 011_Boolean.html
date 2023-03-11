@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Boolean类型</title>
+	</head>
+	<body>
+			<script>
+				/*
+					1. JS中的布尔类型永远都只有两个值，true和false
+					2. 在Boolean类中有一个函数叫做，boolean（数据）
+						它可以把非布尔类型转换为布尔类型
+					3. 有什么会转换成true，什么会转换为false呢？
+						a. 1 转成 true 0 转成 false
+						b. 空字符串，也就是字符串中没有内容为false
+							非空字符串转为成为true
+						c. null是false
+						d. NaN是false
+						e. Infinity是true
+					
+					4. if,while,do...while的写法跟Java的是一样的
+					5. Null类型只有一个值就是null，typeof null 是object
+				*/
+				
+				/* var username = ""; // 为空的字符串经过转换就是成了false
+				if(username) { 
+					alert("欢迎！" + username);
+				}else {
+					alert("用户名不能为空！");
+				} */
+				
+				var a1 = 1; // true
+				var a2 = 0; // false
+				var a3 = ""; // false
+				var a4 = "abc"; // true
+				var a5 = null; // false
+				var a6 = NaN; // false
+				var a7 = Infinity; // true
+				var a8 = undefined; // false
+				
+				function judge(a) {
+					if(a) {
+						alert( a + " is true");
+					}else {
+						alert( a + " is false");
+					}
+				}
+				
+				judge(a8);
+				
+				
+				
+			</script>
+	</body>
+</html>

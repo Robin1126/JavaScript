@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS代码的执行顺序2</title>
+	</head>
+	<!--可以不用onload这段代码-->
+	<body> 
+		
+		
+		<script type="text/javascript">
+		
+		window.onload = function() {
+			document.getElementById("mybtn").onclick = function() {
+				alert("hello js!");
+			}
+		}
+		// 套娃两个函数，一个是绑定用的，一个是鼠标点击按钮用的
+		// 第一个函数是加载过程中就注册上去了，加载完毕，运行第一个函数，此时注册第二个函数到按钮上面
+			
+		 //window.onload是页面加载完毕就执行函数
+	
+		</script>
+		
+		<input type="button" value="hello" id="mybtn" />
+	</body>
+</html>

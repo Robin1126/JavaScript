@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>null,NaN,undefined</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// null NaN undefinded 数据类型不一致
+			// null是object NaN是number undefined是undefined
+			
+			// null和undefined的值是等同的
+			alert(null == NaN);// false
+			alert(null == undefined);// true
+			alert(undefined == NaN); // false
+			
+			// JS中有两个比较特殊的运算符
+			// == 等同运算符，只判断符
+			// === 全等运算符，判断值和数据类型
+			
+			alert(1 == true); //true
+			alert(1 === true); // false
+			alert(true == "abc"); //false
+			alert(true == Infinity);// false
+		</script>
+	</body>
+</html>

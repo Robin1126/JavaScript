@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS代码的执行顺序</title>
+	</head>
+	<!--load事件发生在页面的元素全部加载完毕之后！
+	这个例子非常重要，是我们以后开发经常使用的注册方法！！！-->
+	<body onload="ready()"> <!--用一个ready函数来给按钮绑定js语句，确保一定能绑上-->
+		<!--这个代码块如果放在上面的话，没有建立button-->
+		
+		<script type="text/javascript">
+			/* document.getElementById("mybtn").onclick = function(){
+				alert("hello js!");
+			} */
+		function ready(){
+			var btn = document.getElementById("mybtn");
+			mybtn.onclick = function(){
+				alert("hello js!");
+			}
+		}		
+		</script>
+		
+		<input type="button" value="hello" id="mybtn" />
+	</body>
+</html>

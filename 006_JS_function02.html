@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS函数初步</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				Überladungsfunktion 方法重载
+				java中的方法有重载机制，js中的函数能重载吗？
+					 JS中的函数在调用的时候，参数的类型和个数没有限制
+					 因此JS中不能有重名函数，否则会覆盖而不是方法重载
+				
+				重载：
+					方法名和函数名相同，形式参数不同（数量，类型，顺序）formaler Argument
+					不存在方法重载，两个同名函数，后面的会覆盖前面的！
+					
+				
+					
+			*/
+		   sum=function(a,b) {
+			   return a + b;
+		   }
+		   // 调用函数sum
+		   var retVal = sum(2,2)
+		   alert(retVal);
+		   
+		   var retVal2 = sum("lbb"); // a变量赋值lbb，b变量赋值undefined，两个连接就是lbbundefined
+		   alert(retVal2);
+		   
+		   var retVal3 = sum();
+		   alert(retVal3); // NaN 是一个具体的值，该值表示不是数字，not a number
+		   
+		   var retVal4 = sum(1,2,3); 
+		   alert(retVal4); // 结果是3，说明多出来的参数并不能传进去，直接被吞掉
+		   
+		   function test1(username){
+			   alert("test1");
+		   }
+		   
+		   function test1(){
+			   alert("test1 test1");
+		   }
+		   
+		   
+		   test1(); //只有最后一个函数起作用
+		   test1("bubu"); 
+		</script>
+	</body>
+</html>

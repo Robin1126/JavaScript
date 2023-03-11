@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>局部和全局变量</title>
+			<script type="text/javascript">
+				/*
+					全局变量：
+						在函数体外的变量，浏览器打开时声明，关闭时销毁。
+						尽量少用，因为会一直占用内存
+					局部变量：
+						在函数体当中声明的变量，包括一个函数的形参都属于局部变量。
+						局部变量的生命周期：函数开始执行的时候，局部变量的内存空间开辟，函数执行结束以后，局部变量的内存空间释放。
+						局部变量生命周期较短。
+						
+					注意！ 当一个变量声明的时候没有加上var，那么这个变量成为全局变量
+				*/
+			   var i = 100;
+			   
+			   function accessI(){
+				   // 访问globalVar
+				   alert("i = " + i);
+			   }
+			   
+			   accessI();
+			   
+			   var username = "lisi";
+			   
+			   
+			   accessUsername = function() {
+				   var username = "jack";
+				   alert("username = " + username); 
+			   }
+			   accessUsername(); // 就近原则，访问的是jack，并且访问完以后jack就释放了
+			   alert("username = " + username); // 访问的是全局变量lisi
+			   
+			   function accessAge(){
+				   var age = 20;
+				   alert("age = " + age);
+			   }
+			   
+			   accessAge();
+			   // alert("age = " + age);  直接报错，因为没有声明
+			   
+			   function myfun(){
+				   myname = "lbb";
+			   }
+			   // 访问函数,函数是用来声明变量的
+			   
+			   myfun();
+			   alert("myname = " + myname);
+			</script>
+			
+		   
+		   
+		   
+	</head>
+	<body>
+	</body>
+</html>

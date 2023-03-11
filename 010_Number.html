@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Number类型</title>
+		
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				1. Number类型包括哪些？
+					-1， 0， 2.3， 100，... NaN Infinity
+					整数，小数，不是数字Nan，无穷大Infinity
+					Number类型下的不一定为数字
+				2. isNaN(var) 如果为true就不是一个数字，为false就是一个数字
+				3. parseInt()函数
+				4. parseFloat()函数
+				5. Math.ceil()(数学类，ceil向上取整)
+			*/
+		   var v1 = 1;
+		   var v2 = 3.14;
+		   var v3 = -100;
+		   var v4 = NaN;
+		   var v5 = Infinity;
+		   
+		   alert(typeof v1);
+		   alert(typeof v2);
+		   alert(typeof v3);
+		   alert(typeof v4);
+		   alert(typeof v5);
+		   
+		   // 关于NaN，表示not a number
+		   // 运算结果本应该是一个数字，但是运算过程中导致最后不是一个数字，那么最后的结果是NaN
+		   
+		   var a = 100;
+		   var b = "china";
+		   alert(a / b); // NaN
+		   
+		   // 但是注意，以下是一个字符串，是有优先级的
+		   var e = 10;
+		   var f = "hello";
+		   alert(e + f);
+		   
+		   // Infinity
+		   alert(10 / 0);
+		   
+		   alert(10/3); // 3.33333333333 直接可以算出小数，跟Java不一样
+		   
+		   // isNaN函数，用来判断是不是一个数字，结果为true就不是一个数字，false就是一个数字
+		   // is not a number
+		   function sum(a,b){
+			   if(isNaN(a) || isNaN(b)) {
+				   alert(a + "和" + b + "都必须是数字");
+				   return; // 这里要return，不然就会运算下一个语句
+			   }
+			   return a + b;
+		   }
+		  
+		  var retVal = sum("lbb","zky");
+		  alert(retVal);
+		  
+		  alert(isNaN(NaN)); // true,因为NaN本身就不是一个数字
+		  
+		  // parseInt():可以将字符串自动转换成数字，并且取整数位
+		  alert(parseInt("zky")); //NaN结果本来是数字，但是传进一个无法转换成数字的编程NaN
+		  // parseFloat()：可以将字符串自动转换成小数
+		  // Math.ceil():可以向上取整
+		</script>
+	</body>
+</html>

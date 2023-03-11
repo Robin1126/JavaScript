@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>String类型</title>
+	</head>
+	<body>
+		<script>
+		/*
+			String类型
+				1. JS当中字符串可以使用单引号，也可以使用双引号
+					var s1 = 'abcdefg';
+					var s2 = "abcdefg";
+				2. 在JS当中，怎么创建字符串？
+					两种方式：
+					1. var s ="abc";
+					2. 使用JS内置的支持类String var s2 = new String("abc");
+				需要注意的是：String是一个内置的类，可以直接用，String的父类是Object
+				
+				3. 用new String出来的是大String 直接赋值的是小String 但是它们的方法都是通用的
+				4. 关于String类型的常用函数
+					length属性 获取字符串的长度 x.lenght
+				
+				常用的函数：
+					1. indexOf 获取指定字符串在当前字符串中第一次出现的索引
+					2. lastIndexOf 或者指定字符串在当前字符串中最后一次出现的索引
+					3. replace 替换
+					4. substr 截取子字符串
+					5. substring 截取子字符串
+					6. toLowerCase 转成小写
+					7. toUpperCase 转成大写
+					8. split 以某个字符串切分
+				注意！substr（startInd，lenght）
+					substring（startInd,endInd）不包括endInd
+					
+				
+				
+		*/	
+		var x = "abc"; // string类型
+		alert(typeof x);
+		
+		var y =new String("abc"); // 这个叫大String，但是是object
+		alert(typeof y);
+		
+		// 无论小还是大String 它们的函数都是通用的 比如x.length属性
+		
+		alert("http://www.baidu.com".indexOf("http")); // 返回0 ，第一个位置出现就是0
+		alert("http://www.baidu.com".indexOf("https")); // 没有就是返回-1
+		
+		// replace
+		alert("name=value%name=value%name=value".replace("%","&")); // 只替换了一个
+		// 怎么都替换掉呢？--使用正则表达式才可以全部替换
+		alert("name=value%name=value%name=value".replace("%","&").replace("%","&")); //再替换一个需要再用一次
+		
+		// 考点：substr和substring的区别？
+		alert("abcdefxyz".substring(2,4)); // cd 从下标2开始，到下标4之前，后面的这个是左闭右开
+		alert("abcdefxyz".substr(2,4)); // cdef，从下标为2开始，往后数4个
+		
+		// split
+		var s = "woaiky"
+		var ss = s.split("i");
+		alert(ss);//i删除掉，剩下的字符用,隔开
+		</script>
+		
+	</body>
+</html>

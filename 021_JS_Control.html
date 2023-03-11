@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JS控制语句</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				java怎么用就怎么用
+				1. if
+				2. switch
+				3. for
+				4. while/do...while
+				5. break
+				6. continue
+				
+				8. for..in
+				9. with
+			*/
+		   var arr = [false,true,3.14,"abc",3.1415,1,2]; // 随便写，数据类型没有限制
+		   // 遍历数组
+		   for(var i = 0; i < arr.length; i++){
+			   alert(arr[i]); // 和java一样
+		   }
+		   
+		   // for..in
+		   for(var i in arr) {
+			   alert(arr[i]); //这里的i是元素的下标
+		   }
+		   
+		   // for..in 语句可以遍历对象的属性
+		   User = function(name, no) {
+			   this.name = name;
+			   this.no = no;
+		   }
+		   var user = new User("lbb", 54684);
+		   alert(user.name + ", " + user.no);
+		   alert(user["name"] + ", " + user["no"]);
+		   
+		   for(var charater in user) { //这里charater是属性名，类型是string
+			   alert(user[charater]);
+		   }
+		   
+		   //自动前面添加user，可读性不太好
+		   with(user) { 
+			   alert(name + ", " + no);
+		   }
+		   
+		   
+		</script>
+	</body>
+</html>
+<!--
+java中的数组
+public class Test{
+	public static void main(String[] args){
+		int[] arr = {1,2,3,4,5};
+		int[] arr2 = int[5];
+		String[] arr3 = {"a","b","c"};
+		
+	}
+	
+	
+	
+}
+
+
+
+
+
+-->
