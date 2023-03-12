@@ -6,5 +6,19 @@
 	</head>
 	<body>
 		005页面
+		<script type="text/javascript">
+			/* 如果当前窗口不是顶级窗口，就设置成为顶级窗口 */
+			// window.top是004窗口 window.self是005窗口
+			function setTop() {
+				// console.log((window.top != window.self))
+				if (window.top != window.self) {
+					// 将当前窗口设置为顶级窗口
+					// window.self.location 005的地址
+					window.top.location = window.self.location;
+				}
+			}
+		</script>
+		<!-- <iframe src="005.html" width="500px" height="500px"></iframe> -->
+		<input type="button" value="当前不是顶级窗口的话,设置为顶级窗口" onclick="setTop()" />
 	</body>
 </html>
