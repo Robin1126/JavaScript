@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<!-- trim()是string类型的方法，去除的是“首尾的空格” -->
+		<script type="text/javascript">
+		
+		// 重点是为了prototype扩展方法，按照自己的想法来！！
+		String.prototype.trim = function() {
+			// 改写了trim函数
+			// alert("扩展之后的方法！"); 
+			// this就是代表的当前字符串
+			return this.replace(/^\s+/,"").replace(/\s+$/,""); //手动设定替换空格
+		}	
+			
+			window.onload = function() {
+				document.getElementById("btn").onclick = function() {
+					var username = document.getElementById("username").value;
+					username = username.trim();
+					alert("--->" + username + "<---");
+				}
+			}
+			
+		</script>
+		<input type="text" id="username" />
+		<input type="button" value="获取文本框" id="btn" />
+		
+		
+		
+	</body>
+</html>

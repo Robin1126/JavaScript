@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>innerHTML和innerText操作div和span</title>
+		<style type="text/css">
+			#div1 {
+				background-color: aqua;
+				width: 300px;
+				height: 300px;
+				border: 1px black dashed;
+				position: absolute;
+				top: 100px;
+				left: 100px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<!-- innerHTML和innerText属性有什么区别？
+			相同点：都是设置元素内部的内容
+			不同点：innerHTML会把后面的字符串当作一段HTML代码执行
+				   innerText即使后面是一串HTML代码，也会当作文本字符串看 -->
+		<script type="text/javascript">
+			window.onload = function() {
+				document.getElementById("button").onclick = function(){
+					// 设置div的内容
+					// 第一步：获取div对象
+					var divElt = document.getElementById("div1");
+					// 第二步：利用innerHTML属性来设置元素内部的内容，innerText也是属性
+					divElt.innerHTML = "<font color='red'>woaiky052</font>";
+					 // divElt.innerHTML = "<br>";// 如果是innerHTML就会当作是一段HTML代码
+					// divElt.innerText = "css代码";
+					
+					
+					
+				}
+			}
+		</script>
+		<input type="button" value="设置div中的内容" id="button" />
+		
+		<div id="div1"></div>
+	</body>
+</html>

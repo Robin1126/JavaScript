@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>获取下拉列表中选中项的value</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.onload = function() {
+				var sel = document.getElementById("sel");
+				sel.onchange = function() {
+					// 获取选中项的value
+					alert(sel.value);
+				}
+			}
+			
+			
+		</script>
+		
+		<select id="sel"> <!--选中谁就用谁的value-->
+			<option value="">--请选择省份--</option>
+			<option value="001">河北省</option>
+			<option value="002">河南省</option>
+			<option value="003">山东省</option>
+			<option value="004">山西省</option>
+			<!-- 一点中某个省，获得对应的value -->
+			
+			
+		</select>
+	</body>
+</html>
+
+<!--
+省份和市区的关系：1对多
+id    pcode 	pname
+----------------------
+1	001			河北省
+
+市表
+id	 ccode 		cname   pcode(fk)
+-----------------------------------
+1	 101		石家庄	001
+
+这两张表就联系起来了
+
+假设用户选中河北省，那就会获取到001，然后系统调用数据库
+select * from t_city where pcode = '001';
+返回一个list集合，list<City> citylist;
+
+cityList相应浏览器，浏览器在解析cityList集合转换成一个新的下拉列表
+
+
+-->

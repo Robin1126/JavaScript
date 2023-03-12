@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>复选框的全选和复选</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.onload = function() {
+				var firstChk = document.getElementById("firstChk");
+				var hobbys = document.getElementsByName("hobby");
+				firstChk.onclick = function() {
+					// checked属性是为了看这个元素是否被选中
+					 //取出多个元素
+					for(var i = 0; i < hobbys.length; i++) {
+						hobbys[i].checked = firstChk.checked;
+					}
+				}
+				// 总数量和总选中的数量相等的时候，全选那一栏打勾
+				var all = hobbys.length;
+				
+				// 思路：每次点击一个分项，就要检查统计所有的分项，总数对不对
+				for(var i = 0; i < hobbys.length; i++){
+					hobbys[i].onclick = function() { // 第一次循环是为了给每个checkbox绑定函数，触发事件是click
+						// 每次回调函数一执行，都要归零
+						var checkedCount = 0;
+						// 每打一个勾就要检查所有的分项
+						for(var i = 0; i < hobbys.length; i++) {
+							if(hobbys[i].checked) {
+								checkedCount++;
+							}
+						}
+						firstChk.checked = (checkedCount == all);
+						// 注意判断条件
+			/* 			if(all == checkedCount) {
+							firstChk.checked = true;
+						}else {
+							firstChk.checked = false;
+						} */
+					}
+				}
+			}
+			
+		</script>
+		<!--一点第一个框就全选  -->
+		<input type="checkbox" id="firstChk" />全选<br>
+		<input type="checkbox" name="hobby" />喝酒 <br>
+		<input type="checkbox" name="hobby" />烫头 <br>
+		<input type="checkbox" name="hobby" />抽烟 <br>
+	</body>
+</html>

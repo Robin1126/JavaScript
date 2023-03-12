@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>正则表达式</title>
+	</head>
+	<body>
+		<script>
+			/*
+				1.什么是正则表达式，有什么用？
+					Regular Expression
+					正则表达式主要用在字符串格式匹配方面。
+				
+				2. 正则表达式是一门独立的学科，大部分编程语言都支持正则表达式。正则表达式最早用于医学，用来表示神经符号。
+				目前使用最多的是计算机编程语言，用作字符串匹配，包括搜索方面。
+				
+				3. 正则表达式，对于java要掌握什么?
+					1. 常见的正则表达式符号要认识
+					2. 简单的正则表达式要会写
+					3. 能看懂别人写的正则表达式
+					4. 在JS中如何创建正则表达式 new对象
+					5. 在JS中正则表达式对象的方法有什么？ 调方法
+					6. 要从网络上快速找到自己需要的正则表达式。并且测试其有效性
+					
+					表1.常用的元字符 代码 说明 
+					. 匹配除换行符以外的任意字符 基本代表所有
+					\w 匹配字母或数字或下划线或汉字 
+					\s 匹配任意的空白符 
+					\d 匹配数字 
+					\b 匹配单词的开始或结束 
+					^ 匹配字符串的开始 匹配一切字符串的开始
+					$ 匹配字符串的结束  匹配一切字符串的结束
+					
+					代码/语法 说明 
+					* 重复零次或更多次  0-N次
+					+ 重复一次或更多次  1-N次
+					? 重复零次或一次  0-1次
+					{n} 重复n次 
+					{n,} 重复n次或更多次 
+					{n,m} 重复n到m次 
+					
+					代码/语法 说明 
+					\W 匹配任意不是字母，数字，下划线，汉字的字符  \w的反义
+					\S 匹配任意不是空白符的字符 
+					\D 匹配任意非数字的字符 
+					\B 匹配不是单词开头或结束的位置 
+					[^x] 匹配除了x以外的任意字符 
+					[^aeiou] 匹配除了aeiou这几个字母以外的任意字符 
+					
+					正则表达式中的小括号（）优先级较高
+					[A-Za-z0-9] 表示这3个范围中任意一个
+					|表示或
+				
+				6. 简单的正则表达式
+					QQ号的正则表达式 ^[1-9][0-9]{4,}$ 第一位不能为0，至少4位数
+					韶关固定电话正则：^0751-[0-9]{7}$
+					身份证号 ^/d{17}[0-9X]$
+					
+				-> 看他人的表达式
+					email正则 	^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$ 一定要有\.
+					
+				7. 怎么创建正则表达式对象，怎么调用正则表达式对象？
+					第一种：
+						var regExp = /正则表达式/flags; 两边斜杠
+					第二种：使用内置支持类RegExp
+						var regExp = new RegExp("正则表达式"，"flags")；
+					
+					关于flags：
+						可以选择写
+						g 全局匹配
+						i 忽略大小写
+						m 多行匹配
+						如果不是正则表达式，就不能用m，也就是说上面的正则表达式也可以是普通的字符串，用来检索
+				
+				8. 正则表达式对象的test()方法？
+					true / false = 正则表达式对象.test(用户填写的字符串) 注意是对象！！要先new出来或者定义出来
+					true表示成功，false表示失败
+						
+					
+			*/
+
+		   
+		   window.onload = function() {
+			   document.getElementById("test").onclick = check; 
+		       
+			   document.getElementById("phonenumber").onkeydown = function(event) {
+				   if(event.keyCode == 13) {
+					   check();
+				   }
+			   };
+			   
+			   document.getElementById("phonenumber").onfocus = function() {
+				   document.getElementById("phoneError").innerText = "";
+			   }
+			   
+			  /* document.getElementById("phonenumber").onblur = function() {
+				   document.getElementById("phoneError").innerText = "";
+			   } */
+			   
+			   document.getElementById("phonenumber").onselect = function() {
+			   		document.getElementById("phoneError").innerText = "";
+			   }
+		   }
+		   
+		   
+		   function check(){
+			   var phone = document.getElementById("phonenumber").value;
+			   var phoneRegExp = /^(0751)?[0-9]{7}$/;
+			   var result = phoneRegExp.test(phone);
+			   if(!result) {
+				   document.getElementById("phoneError").innerText = "固话地址不正确！";
+			   }else {
+				   document.getElementById("phoneError").innerText = "验证成功！";
+			   }
+		   }
+			
+		</script>
+		
+		<input type="text" id="phonenumber" />
+		<span id="phoneError" style="color: red; font-size: 12px;"></span>
+		<br>
+		<input type="button" id="test" value="验证韶关固话"/>
+	</body>
+</html>

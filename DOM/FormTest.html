@@ -1,0 +1,128 @@
+<!-- 表单验证
+（1）用户名不能为空
+（2）用户名必须在6-14位之间
+（3）用户名只能有数字和字母组成，不能含有其它符号（正则表达式）
+（4）密码和确认密码一致，邮箱地址合法。
+（5）统一失去焦点验证
+（6）错误提示信息统一在span标签中提示，并且要求字体12号，红色。
+（7）文本框再次获得焦点后，清空错误提示信息，如果文本框中数据不合法要求清空文本框的value
+（8）最终表单中所有项均合法方可提交
+ -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表单验证</title>
+		<style type="text/css">
+			span {
+				color: red;
+				font-size: 12;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.onload = function(){
+				// 用户名
+				var username = document.getElementById("username");
+				var usernameError = document.getElementById("usernameError");
+				// 检查用户名合法性
+				username.onblur = function() {
+					var name = username.value;
+					var usernameRegExp = /^[0-9A-Za-z]{6,14}/;
+					var nameTest = usernameRegExp.test(name);
+					if(!nameTest) {
+						usernameError.innerText = "用户名有误！必须是长度为6-14且数字和字母的组合！";
+					}
+				}
+				// 清空用户名错误信息
+				username.onfocus = function() {
+					if(usernameError.innerText != "") {
+						username.value = "";
+					}
+					usernameError.innerText = "";
+				}
+				
+				// 密码
+				var pwd = document.getElementById("pwd");
+				var pwdCon = document.getElementById("pwdcon");
+				var pwdErr = document.getElementById("pwdError");
+				// 检查密码
+				pwdCon.onblur = function() {
+					if(pwd.value != pwdCon.value) {
+						pwdErr.innerText = "密码不一致！";
+					}
+				}
+				pwdCon.onfocus = function() {
+					if(pwdErr.innerText != "") {
+						pwdCon.value = "";
+					}
+					pwdErr.innerText = "";
+				}
+				
+				// 邮箱
+				var email = document.getElementById("email");
+				var emailErr = document.getElementById("emailError");
+				// 检查邮箱
+				email.onblur = function() {
+					var emailRegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+					var emailTest = emailRegExp.test(email.value);
+					// alert(emailTest);
+					if(!emailTest) {
+						emailErr.innerText = "邮箱地址不合法！";
+					}
+				}
+				// 清楚错误信息
+				email.onfocus = function() {
+					if(emailErr.innerText != "") {
+						email.value = "";
+					}
+					emailErr.innerText = "";
+				}
+				
+				// 给提交按钮绑定鼠标单击事件
+				// 提交按钮不要是submit
+				var btnsubmit = document.getElementById("btnsubmit");
+				btnsubmit.onclick = function() {
+					// 当所有事件都是合法的时候，提交表单, 所有文字框都触发了blur之后才可以
+					// 用代码来触发事件
+					username.focus();
+					username.blur();
+					pwdCon.focus();
+					pwdCon.blur();
+					email.focus();
+					email.blur();
+					// 当所有表单项都是合法的时候,提交表单
+					// 注意 按钮中的id啥的不能是submit
+					// When you name the button submit, you override the submit() function on the form.
+					if(usernameError.innerText == "" && pwdErr.innerText == "" && emailErr.innerText == "") {
+						var userForm = document.getElementById("userForm");
+						userForm.submit(); // 这样来提交表单
+					} 
+					
+		/* 			if(usernameError.innerText == "" && pwdErr.innerText == "" && emailErr.innerText == ""){
+										   // 获取表单对象
+										   var userFormElt = document.getElementById("userForm");
+										   // 可以在这里设置action,也可以不在这里.
+										   // userFormElt.action = "http://localhost:8080/jd/save";
+										   // 提交表单
+										   userFormElt.submit();
+					} */
+					
+					
+				}
+				
+			}
+			
+		</script>
+		<form id="userForm" action="http://192.168.111.3:8080/oa/save" method="get">
+		用户名 <input type="text" id="username"  name="username"/> <span id="usernameError"></span><br>
+		密码 <input type="text" id="pwd" name="password" /><br>
+		确认密码 <input type="text" id="pwdcon"/><span id="pwdError"></span><br>
+		邮箱 <input type="text" id="email" name="email" /><span id="emailError"></span><br>
+		<input type="button" id="btnsubmit" value="submit"/> &nbsp; &nbsp;
+		<input type="reset" id="reset" value="reset" />
+		</form>
+	</body>
+</html>

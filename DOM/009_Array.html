@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内置支持类Array</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// 创建长度为0的数组
+			/* 
+			var arr = [];
+			var arr2 = [1,2,3,false,3.14]; // 数据类型随意
+			
+			// 下标会越界吗？
+			arr2[6] = "test";
+			// 并不会越界，会自动补上undefined
+			
+			document.writeln();
+			
+			for(var i = 0; i < arr2.length; i++) {
+				document.write(arr2[i] + "<br>");
+			}
+			
+			// 写法
+			arr1 = new Array(3,2); // 这样写是表示元素，只写一个是表示长度
+			for(var i = 0; i < arr1.length; i++) {
+				document.writeln(arr1[i]);
+			} */
+			
+			var a = [1,2,3];
+			var str = a.join("-"); // 可以把每个元素拿出来，用-连接成一个新的字符串
+			alert(str);
+			
+			a.push(10);//在末尾加上10
+			alert(a.join("="));
+			
+			a.pop(); // 末尾弹出一个元素
+			//注意：JS中的数组可以自动模拟stack的压栈弹栈
+			
+			a.reverse(); // 反转数列
+			alert(a.join("-"));
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

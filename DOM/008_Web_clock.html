@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>显示网页时钟</title>
+	</head>
+	<body>
+		<!--内置的日期类Date-->
+		<script>
+			/*
+				关于JS中内置的支持类，Date，可以用来获取时间。日期
+			*/
+		   // 获取当前时间
+		   var nowTime = new Date();
+		   // document.write(nowTime); // 这个是写到网页上面的 相当于System.out.println()
+		   // 转换成具有本地语言环境的日期格式
+		   nowTime = nowTime.toLocaleString();
+		   document.write(nowTime);
+		   document.write("<br>") // 输出换行符
+		   document.write("<br>") 
+		   // 当以上格式不是自己想要的，可以通过日期获取年月日等信息，自定制日期格式
+		   var t = new Date();
+		   var year = t.getFullYear(); // 全格式返回
+		   var year1 = t.getYear();
+		   var month = t. getMonth() + 1; // 0-11月份
+		   var day = t.getDay(); // 一周的第几天 0-6周日是0
+		   var day1 = t.getDate();
+		   document.write(year + "年" + month + "月" + day1 + "日");
+		   
+		   document.write("<br>");
+		   document.write("<br>");
+		   
+		   // 怎么获取毫秒数 从1970到现在
+		   var times = t.getTime();
+		   document.write(times); //一般使用毫秒数当作timestamp
+		   doucument.write("<br>");
+		   
+		   function displayTime() {
+			   var time = new Date();
+			   time = time.toLocaleString();
+			   document.getElementById("timeDiv").innerText = time;
+		   }
+		   //每隔一秒调用一次displayTime（）函数
+		   // setInterval可以设置周期性调用函数
+		   function start() {
+			   // 从这行代码执行结束开始，就会不间断每一秒改一次
+			   v = window.setInterval("displayTime()", 1000);
+			   // 这会返回一个值，这个值给clearInterval可以取消这个周期性调用
+		   }
+		   
+		   function stop() {
+			   window.clearInterval(v);
+		   }
+		   /*
+			这里主要讲的是周期性调用 setInterval和clearInterval 
+		   */
+		   
+		</script>
+		<br>
+		<input type="button" value="显示时间" onclick="start()"/>
+		<input type="button" value="时间停止" onclick="stop()" />
+		<div id="timeDiv"></div>
+	</body>
+</html>
