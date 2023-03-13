@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<students>
+	<student sno="110">
+		<sname>zhangsan</sname>
+		<sex>man</sex>
+	</student>
+	<student sno="120">
+		<sname>lisi</sname>
+		<sex>man</sex>
+	</student>
+	<student sno="130">
+		<sname>wangwu</sname>
+		<sex>woman</sex>
+	</student>
+</students>

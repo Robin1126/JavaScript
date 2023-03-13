@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JSON</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+				1. 什么是JSON，有什么用？
+					Java Script Object Notation，用来交换数据的格式
+				2. JSON是一种轻量级的交换数据方式，对比XML。
+					XML的语法比较严格，用来数据存储和数据描述的
+				3. JSON的格式 它是一种无类型对象，不是从类里面新建出来的
+				4. JSON的语法格式
+					var jsonObj = {
+						"属性名":"属性值"，
+						"属性名":"属性值"，
+						"属性名":"属性值"，
+						...
+					}
+					
+				
+			*/
+		   var jsonObj = {
+			   "sno" : "110",
+			   "sname" : "zhangsan",
+			   "sex" : "男"
+		   };
+		   // 访问对象的属性
+		   alert(jsonObj.sno + ", " + jsonObj.sname + ", " + jsonObj.sex);
+		   
+		   // 之前是用类创建对象
+		   Student = function(sno,sname,sex) {
+			   this.sno = sno;
+			   this.sname = sname;
+			   this.sex = sex;
+		   }
+		   var stu = new Student("111","lisi","man");
+		   alert(stu.sno + ", " + stu.sname + ", " + stu.sex);
+		   
+		   // 同样也可以用数组存储JSON对象
+		   var Students = [ {"sno":"110", "sname":"zhangsan", "sex":"man"},
+			   {"sno":"120", "sname":"lisi", "sex":"man"},
+			   {"sno":"130", "sname":"wangwu", "sex":"woman"}
+		   ];
+		   
+		   // 遍历
+		   for(var i = 0; i < Students.length; i++) {
+			   var stuObj = Students[i];
+			   alert(stuObj.sno + ', ' + stuObj.sname + ', ' + stuObj.sex);
+		   }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>复杂一些的JSON</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var user = {
+				"usercode" : 110,
+				"username" : "lbb",
+				"sex" : true,
+				"address" : { "city" : "ilmenau", 
+				"nation": "German",
+				"PLZ" : 98693}
+			}; //JASN也可以作为JASN属性值
+			
+			// 访问名字和居住的城市
+			alert(user.username + ", " + user.address.city );
+			
+			/*
+				设计JSON格式的数据，这个JSON格式的数据可以描述整个班级中每一个学生的信息，以及总人数信息。
+			*/
+		   var classData = {
+			   "total" : 3,
+				"students" : [
+					{"name":"zhangsan"},
+					{"name":"lisi"},
+					{"name":"wangwu"},
+				]			   
+		   }
+		</script>
+	</body>
+</html>

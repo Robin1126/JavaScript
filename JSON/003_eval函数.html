@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>eval函数</title>
+	</head>
+	<body>
+		<!-- JSON在JS中以对象的形式存在 -->
+		<script type="text/javascript">
+			/*eval函数的作用是，讲一段字符串当作JS代码执行 ，非常重要，可以让我们在前端取数据 */
+			window.eval("var i = 100;"); // 将双引号括起来的字符串当作JS代码执行
+			alert("i = " + i);
+			
+			// java连接数据库，查询到数据之后，将数据在java程序中拼成JSON格式的字符串，将json格式的字符串响应到浏览器
+			// java只负责传过来一个字符串，但是浏览器可以通过eval格式将这个字符串转换成为json对象
+			var fromJava = "{\"name\":\"lbb\",\"birth\":\"1992-11-26\"}";
+			// 将以上的字符串转换成为json对象
+			window.eval("var jsonObj = " + fromJava); // 就是为了获取JSON对象的，这就完成了java和浏览器的通信
+			alert(jsonObj.name + ", " + jsonObj.birth); // 在前端取数据
+			
+			/*
+				JS中，[]和{}有什么区别？
+					1. []是数组
+					2. {}是JSON
+					在Java中，数组 int[]arr = {1,2,3};
+					在JS中，数组 var arr = [1,2,3];
+					JSON var jsonObj = {"name" : "lbb", "note" : "2.6"};
+			*/
+		   // JS中访问JSON对象的属性
+		   // 1. json.username
+		   // 2. json["username"]
+		   // for in 语句也可以访问对象的属性
+		</script>
+	</body>
+</html>
